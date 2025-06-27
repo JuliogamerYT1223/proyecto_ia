@@ -1,0 +1,113 @@
+/* Centrado y ancho total */
+.react-datepicker {
+  display: flex;
+  justify-content: center;
+  width: 100% !important;
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+  border: none;
+}
+
+/* Contenedor de cada mes */
+.react-datepicker__month-container {
+  flex: 1;
+  width: 100%;
+  min-width: 300px;
+  max-width: 50%;
+}
+
+/* Contenedor cuando hay dos meses */
+.react-datepicker__month-container:first-child {
+  padding-right: 0.5rem;
+}
+.react-datepicker__month-container:last-child {
+  padding-left: 0.5rem;
+}
+
+/* Cabecera del calendario */
+.react-datepicker__header {
+  background-color: #f1f1f1;
+  border-bottom: none;
+  padding-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Días de la semana (lu, ma, etc.) */
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+.react-datepicker__day-name {
+  width: 2rem;
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Contenedor del mes */
+.react-datepicker__month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fila semanal */
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* Estilos de cada día */
+.react-datepicker__day {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Día seleccionado */
+.react-datepicker__day--selected {
+  background-color: #7f1d1d;
+  color: white;
+  border-radius: 0.5rem;
+}
+
+/* Día enfocado por teclado (sin resalte) */
+.react-datepicker__day--keyboard-selected {
+  background-color: transparent !important;
+  color: inherit !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Días deshabilitados */
+.react-datepicker__day--disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Día con hover */
+.react-datepicker__day:not(.react-datepicker__day--disabled):hover {
+  background-color: #eaeaea;
+}
+
+/* Días de otros meses (más tenues) */
+.react-datepicker__day--outside-month {
+  color: #d1d5db !important;
+}
+
+/* ❌ Evita duplicar visualmente la selección en el primer mes (cuando se repite en el segundo) */
+.react-datepicker__month-container:first-of-type
+  .react-datepicker__day--selected.react-datepicker__day--outside-month {
+  background-color: transparent !important;
+  color: #9ca3af !important; /* gris tenue */
+  pointer-events: none;
+  font-weight: normal;
+}
